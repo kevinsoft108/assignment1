@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <% alert_types = {alert: 'warning', error: 'danger', notice: 'info', success: 'success'} %>
+  <% flash.each do |type, message| %>
+    <div class="alert alert-<%= alert_types[type.to_sym] %> alert-dismissible fade show" role="alert">
+      <%= message %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>

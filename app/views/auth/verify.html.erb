@@ -1,0 +1,30 @@
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <p class="text-center mb-4">
+        We just emailed you a six digit code,
+        <br/>
+        please enter it in the box below.
+      </p>
+      <%= form_with(url: auth_verifications_path, html: { class: "mt-6", data: { turbo: false } }) do |f| %>
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label" do %>
+            Email
+            <%= link_to "Change", auth_path %>
+          <% end %>
+          <%= f.email_field :email, value: @email, placeholder: "you@email.com", class: "form-control", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label" do %>
+            Auth code
+            <%= link_to "Re-send code", auth_path(email: @email), method: :post %>
+          <% end %>
+          <%= f.text_field :auth_code, class: "form-control", maxlength: 6 %>
+        </div>
+      
+        <%= f.submit "Continue to your account", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

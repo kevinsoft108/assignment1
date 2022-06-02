@@ -1,0 +1,18 @@
+<h1>Hey <%= @user.first_name %>,</h1>
+<p>Use the six digit code below to continue signing in to your account (this will expire in 5 minutes).</p>
+
+<table class="attributes" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="attributes_content">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td class="attributes_item">
+            <span style="display: block; font-size: 35px; font-weight: bold; letter-spacing: 10px; text-align: center;"><%= @auth_code %></span>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<p>If you didn't request this code you can safely ignore this email.</p>

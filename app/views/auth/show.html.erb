@@ -1,0 +1,25 @@
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <h3 class="text-center">
+        Login
+      </h3>
+      <p>Please login before proceed</p>
+      <%= form_with(url: auth_path, html: { data: { turbo: false } }) do |f| %>
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label" %>
+          <%= f.email_field :email, value: params[:email], placeholder: "you@email.com", class: "form-control" %>
+        </div>
+        
+        <% if @display_name_fields %>
+          <div class="mb-3">
+            <%= f.text_field :first_name, placeholder: "First name", class: "form-control" %>
+            <%= f.text_field :last_name, placeholder: "Last name", class: "form-control" %>
+          </div>
+        <% end %>
+
+        <%= f.submit "Continue", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
